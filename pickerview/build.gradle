@@ -24,20 +24,20 @@ android {
     }
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release  // 发布 release 构建产物
-
-                // 配置 Maven 坐标（对应 com.github.wwy2178:AndroidPickerView:v1.0.0）
-                groupId = 'com.github.wwy2178'  // 替换为你的 GitHub 用户名
-                artifactId = 'datepicker'      // 模块名称（如 AndroidPickerView）
-                version = '1.0.0'                   // 版本号
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release  // 发布 release 构建产物
+//
+//                // 配置 Maven 坐标（对应 com.github.wwy2178:AndroidPickerView:v1.0.0）
+//                groupId = 'com.github.wwy2178'  // 替换为你的 GitHub 用户名
+//                artifactId = 'datepicker'      // 模块名称（如 AndroidPickerView）
+//                version = '1.0.0'                   // 版本号
+//            }
+//        }
+//    }
+//}
 
 dependencies {
 //    compile fileTree(include: ['*.jar'], dir: 'libs')
