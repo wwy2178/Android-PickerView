@@ -455,7 +455,7 @@ public class WheelView extends View {
             int drawRightContentStart = measuredWidth - getTextWidth(paintCenterText, label);
             canvas.drawText(label, drawRightContentStart - CENTER_CONTENT_OFFSET, centerY, paintCenterText);
         }
-        Log.d("WheelViewCanvas", "onDraw  绘制啦 label:" + label);
+//        Log.d("WheelViewCanvas", "onDraw  绘制啦 label:" + label);
 
         // 设置数组中每个元素的值
         int counter = 0;
@@ -475,7 +475,7 @@ public class WheelView extends View {
             } else {
                 showText = adapter.getItem(index);
             }
-            Log.d("WheelViewCanvas", "onDraw  循环绘制啦 label:" + label + " <----> " + showText + " ----- 当前年： " + adapter.getYearValue(index) + " ------ 当前月： " + adapter.getMonthValue(index));
+//            Log.d("WheelViewCanvas", "onDraw  循环绘制啦 label:" + label + " <----> " + showText + " ----- 当前年： " + adapter.getYearValue(index) + " ------ 当前月： " + adapter.getMonthValue(index));
             canvas.save();
             // 弧长 L = itemHeight * counter - itemHeightOffset
             // 求弧度 α = L / r  (弧长/半径) [0,π]
@@ -503,7 +503,7 @@ public class WheelView extends View {
                             calendar.set(adapter.getYearValue(index), adapter.getMonthValue(index)-1, day);
                             boolean isSameDay = TimeUtil.isSameDay(calendar.getTimeInMillis(), System.currentTimeMillis());
                             String week = isSameDay ? "今天" : format.format(calendar.getTime());
-                            Log.d("WheelViewCanvas", "onDraw  循环绘制啦 label:" + label + " , week：" + week + " <--" + day + "--> " + showText + " ----- 当前年： " + adapter.getYearValue(index) + " ------ 当前月： " + adapter.getMonthValue(index));
+//                            Log.d("WheelViewCanvas", "onDraw  循环绘制啦 label:" + label + " , week：" + week + " <--" + day + "--> " + showText + " ----- 当前年： " + adapter.getYearValue(index) + " ------ 当前月： " + adapter.getMonthValue(index));
                             contentText = getContentText(showText) + label + " " + week;
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -515,7 +515,7 @@ public class WheelView extends View {
                 } else {
                     contentText = getContentText(showText);
                 }
-                Log.d("WheelViewCanvas", " 拿到需要显示的文案: "+ contentText + " ----- 当前年： " + adapter.getYearValue(index) + " ------ 当前月： " + adapter.getMonthValue(index));
+//                Log.d("WheelViewCanvas", " 拿到需要显示的文案: "+ contentText + " ----- 当前年： " + adapter.getYearValue(index) + " ------ 当前月： " + adapter.getMonthValue(index));
                 // 根据当前角度计算出偏差系数，用以在绘制时控制文字的 水平移动 透明度 倾斜程度.
                 float offsetCoefficient = (float) Math.pow(Math.abs(angle) / 90f, 2.2);
 

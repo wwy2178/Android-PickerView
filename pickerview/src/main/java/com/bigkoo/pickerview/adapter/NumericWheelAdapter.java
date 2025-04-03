@@ -30,12 +30,12 @@ public class NumericWheelAdapter implements WheelAdapter {
 		this.maxValue = maxValue;
 		this.yearValue = yearValue;
 		this.monthValue = monthValue;
-		Log.d("日期选择器", "设置年月日信息 minValue: "+minValue + "  maxValue："+maxValue + " yearValue："+yearValue + " monthValue："+monthValue);
+//		Log.d("日期选择器", "设置年月日信息 minValue: "+minValue + "  maxValue："+maxValue + " yearValue："+yearValue + " monthValue："+monthValue);
 	}
 
 	@Override
 	public Object getItem(int index) {
-		Log.d("日期选择器", "getItem内容下标: "+index + " 总数量:"+getItemsCount());
+//		Log.d("日期选择器", "getItem内容下标: "+index + " 总数量:"+getItemsCount());
 		if (index >= 0 && index < getItemsCount()) {
 			int value = minValue + index;
 			return value;
@@ -45,13 +45,13 @@ public class NumericWheelAdapter implements WheelAdapter {
 
 	@Override
 	public int getYearValue(int index) {
-		Log.d("日期选择器", "获取NumberWheel年数据  当前年: "+yearValue + " , index:"+index);
+//		Log.d("日期选择器", "获取NumberWheel年数据  当前年: "+yearValue + " , index:"+index);
 		return yearValue;
 	}
 
 	@Override
 	public int getMonthValue(int index) {
-		Log.d("日期选择器", "获取NumberWheel月数据  当前月: "+monthValue + " , index:"+index + " , 对应的天:"+getItem(index));
+//		Log.d("日期选择器", "获取NumberWheel月数据  当前月: "+monthValue + " , index:"+index + " , 对应的天:"+getItem(index));
 		return monthValue;
 	}
 

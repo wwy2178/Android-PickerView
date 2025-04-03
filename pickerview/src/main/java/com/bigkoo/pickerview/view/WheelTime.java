@@ -260,7 +260,7 @@ public class WheelTime {
         currentYear = year;
         // 年
         wv_year = (WheelView) view.findViewById(R.id.year);
-        Log.d("wv_day_ss", "=-=-1=-=> 设置年 "+year + " , 月："+(month + 1));
+//        Log.d("wv_day_ss", "=-=-1=-=> 设置年 "+year + " , 月："+(month + 1));
         wv_year.setAdapter(new NumericWheelAdapter(startYear, endYear,year,(month + 1)));// 设置"年"的显示数据
 
 
@@ -269,21 +269,21 @@ public class WheelTime {
         // 月
         wv_month = (WheelView) view.findViewById(R.id.month);
         if (startYear == endYear) {//开始年等于终止年
-            Log.d("wv_day_ss", "=-=-2=-=> 设置月 "+year + " , 月："+(month + 1));
+//            Log.d("wv_day_ss", "=-=-2=-=> 设置月 "+year + " , 月："+(month + 1));
             wv_month.setAdapter(new NumericWheelAdapter(startMonth, endMonth,year,(month + 1)));
             wv_month.setCurrentItem(month + 1 - startMonth);
         } else if (year == startYear) {
             //起始日期的月份控制
-            Log.d("wv_day_ss", "=-=-3=-=> 设置月 "+year + " , 月："+month + " -->"+(month + 1 - startMonth));
+//            Log.d("wv_day_ss", "=-=-3=-=> 设置月 "+year + " , 月："+month + " -->"+(month + 1 - startMonth));
             wv_month.setAdapter(new NumericWheelAdapter(startMonth, 12,year,(month + 1)));
             wv_month.setCurrentItem(month + 1 - startMonth);
         } else if (year == endYear) {
             //终止日期的月份控制
-            Log.d("wv_day_ss", "=-=-4=-=终止日期> 设置月 "+year + " , 月："+(month + 1) );
+//            Log.d("wv_day_ss", "=-=-4=-=终止日期> 设置月 "+year + " , 月："+(month + 1) );
             wv_month.setAdapter(new NumericWheelAdapter(1, endMonth,year,(month + 1)));
             wv_month.setCurrentItem(month);
         } else {
-            Log.d("wv_day_ss", "=-=-5=-=终止日期> 设置月 "+year + " , 月："+(month + 1) );
+//            Log.d("wv_day_ss", "=-=-5=-=终止日期> 设置月 "+year + " , 月："+(month + 1) );
             wv_month.setAdapter(new NumericWheelAdapter(1, 12,year,(month + 1)));
             wv_month.setCurrentItem(month);
         }
@@ -296,18 +296,18 @@ public class WheelTime {
         boolean leapYear = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
         Log.d("wv_day_ss", "=-==- 日日日 =-> " + (startYear == endYear) + " ， " + (startMonth == endMonth));
         if (startYear == endYear && startMonth == endMonth) {
-            Log.d("wv_day_ss", "=-=-=-=-> wv_day 0000");
+//            Log.d("wv_day_ss", "=-=-=-=-> wv_day 0000");
             if (list_big.contains(String.valueOf(month + 1))) {
                 if (endDay > 31) {
                     endDay = 31;
                 }
-                Log.d("wv_day_ss", "=-=-6=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                Log.d("wv_day_ss", "=-=-6=-=> 设置天 "+year + " , 月："+(month + 1) );
                 wv_day.setAdapter(new NumericWheelAdapter(startDay, endDay,year,(month + 1)));
             } else if (list_little.contains(String.valueOf(month + 1))) {
                 if (endDay > 30) {
                     endDay = 30;
                 }
-                Log.d("wv_day_ss", "=-=-7=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                Log.d("wv_day_ss", "=-=-7=-=> 设置天 "+year + " , 月："+(month + 1) );
                 wv_day.setAdapter(new NumericWheelAdapter(startDay, endDay,year,(month + 1)));
             } else {
                 // 闰年
@@ -315,13 +315,13 @@ public class WheelTime {
                     if (endDay > 29) {
                         endDay = 29;
                     }
-                    Log.d("wv_day_ss", "=-=-8=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                    Log.d("wv_day_ss", "=-=-8=-=> 设置天 "+year + " , 月："+(month + 1) );
                     wv_day.setAdapter(new NumericWheelAdapter(startDay, endDay,year,(month + 1)));
                 } else {
                     if (endDay > 28) {
                         endDay = 28;
                     }
-                    Log.d("wv_day_ss", "=-=-9=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                    Log.d("wv_day_ss", "=-=-9=-=> 设置天 "+year + " , 月："+(month + 1) );
                     wv_day.setAdapter(new NumericWheelAdapter(startDay, endDay,year,(month + 1)));
                 }
             }
@@ -330,14 +330,14 @@ public class WheelTime {
             Log.d("wv_day_ss", "=-=-=-=-> wv_day 起始日期的天数控制");
             // 起始日期的天数控制
             if (list_big.contains(String.valueOf(month + 1))) {
-                Log.d("wv_day_ss", "=-=-10=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                Log.d("wv_day_ss", "=-=-10=-=> 设置天 "+year + " , 月："+(month + 1) );
                 wv_day.setAdapter(new NumericWheelAdapter(startDay, 31,year,(month + 1)));
             } else if (list_little.contains(String.valueOf(month + 1))) {
-                Log.d("wv_day_ss", "=-=-11=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                Log.d("wv_day_ss", "=-=-11=-=> 设置天 "+year + " , 月："+(month + 1) );
                 wv_day.setAdapter(new NumericWheelAdapter(startDay, 30,year,(month + 1)));
             } else {
                 // 闰年 29，平年 28
-                Log.d("wv_day_ss", "=-=-12=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                Log.d("wv_day_ss", "=-=-12=-=> 设置天 "+year + " , 月："+(month + 1) );
                 wv_day.setAdapter(new NumericWheelAdapter(startDay, leapYear ? 29 : 28,year,(month + 1)));
             }
             wv_day.setCurrentItem(day - startDay);
@@ -348,13 +348,13 @@ public class WheelTime {
                 if (endDay > 31) {
                     endDay = 31;
                 }
-                Log.d("wv_day_ss", "=-=-13=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                Log.d("wv_day_ss", "=-=-13=-=> 设置天 "+year + " , 月："+(month + 1) );
                 wv_day.setAdapter(new NumericWheelAdapter(1, endDay,year,(month + 1)));
             } else if (list_little.contains(String.valueOf(month + 1))) {
                 if (endDay > 30) {
                     endDay = 30;
                 }
-                Log.d("wv_day_ss", "=-=-13=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                Log.d("wv_day_ss", "=-=-13=-=> 设置天 "+year + " , 月："+(month + 1) );
                 wv_day.setAdapter(new NumericWheelAdapter(1, endDay,year,(month + 1)));
             } else {
                 // 闰年
@@ -362,13 +362,13 @@ public class WheelTime {
                     if (endDay > 29) {
                         endDay = 29;
                     }
-                    Log.d("wv_day_ss", "=-=-14=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                    Log.d("wv_day_ss", "=-=-14=-=> 设置天 "+year + " , 月："+(month + 1) );
                     wv_day.setAdapter(new NumericWheelAdapter(1, endDay,year,(month + 1)));
                 } else {
                     if (endDay > 28) {
                         endDay = 28;
                     }
-                    Log.d("wv_day_ss", "=-=-15=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                    Log.d("wv_day_ss", "=-=-15=-=> 设置天 "+year + " , 月："+(month + 1) );
                     wv_day.setAdapter(new NumericWheelAdapter(1, endDay,year,(month + 1)));
                 }
             }
@@ -377,14 +377,14 @@ public class WheelTime {
             Log.d("wv_day_ss", "=-=-=-=-> wv_day 大小月及是否闰年,用来确定 日 的数据");
             // 判断大小月及是否闰年,用来确定"日"的数据
             if (list_big.contains(String.valueOf(month + 1))) {
-                Log.d("wv_day_ss", "=-=-16=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                Log.d("wv_day_ss", "=-=-16=-=> 设置天 "+year + " , 月："+(month + 1) );
                 wv_day.setAdapter(new NumericWheelAdapter(1, 31,year,(month + 1)));
             } else if (list_little.contains(String.valueOf(month + 1))) {
-                Log.d("wv_day_ss", "=-=-17=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                Log.d("wv_day_ss", "=-=-17=-=> 设置天 "+year + " , 月："+(month + 1) );
                 wv_day.setAdapter(new NumericWheelAdapter(1, 30,year,(month + 1)));
             } else {
                 // 闰年 29，平年 28
-                Log.d("wv_day_ss", "=-=-18=-=> 设置天 "+year + " , 月："+(month + 1) );
+//                Log.d("wv_day_ss", "=-=-18=-=> 设置天 "+year + " , 月："+(month + 1) );
                 wv_day.setAdapter(new NumericWheelAdapter(startDay, leapYear ? 29 : 28,year, + 1));
             }
             wv_day.setCurrentItem(day - 1);
@@ -420,7 +420,7 @@ public class WheelTime {
                 // 判断大小月及是否闰年,用来确定"日"的数据
                 if (startYear == endYear) {
                     //重新设置月份
-                    Log.d("wv_day_ss", "=-=-19=-=> 设置天 "+year_num + " , 月："+currentMonthItem );
+//                    Log.d("wv_day_ss", "=-=-19=-=> 设置天 "+year_num + " , 月："+currentMonthItem );
                     wv_month.setAdapter(new NumericWheelAdapter(startMonth, endMonth,year_num,currentMonthItem));
 
                     if (currentMonthItem > wv_month.getAdapter().getItemsCount() - 1) {
@@ -443,7 +443,7 @@ public class WheelTime {
                     }
                 } else if (year_num == startYear) {//等于开始的年
                     //重新设置月份
-                    Log.d("wv_day_ss", "=-=-20=-=> 设置天 "+year_num + " , 月："+currentMonthItem );
+//                    Log.d("wv_day_ss", "=-=-20=-=> 设置天 "+year_num + " , 月："+currentMonthItem );
                     wv_month.setAdapter(new NumericWheelAdapter(startMonth, 12,year_num,currentMonthItem));
 
                     if (currentMonthItem > wv_month.getAdapter().getItemsCount() - 1) {
@@ -462,7 +462,7 @@ public class WheelTime {
 
                 } else if (year_num == endYear) {
                     //重新设置月份
-                    Log.d("wv_day_ss", "=-=-21=-=> 设置天 "+year_num + " , 月："+month );
+//                    Log.d("wv_day_ss", "=-=-21=-=> 设置天 "+year_num + " , 月："+month );
                     wv_month.setAdapter(new NumericWheelAdapter(1, endMonth,year_num,month));
                     if (currentMonthItem > wv_month.getAdapter().getItemsCount() - 1) {
                         currentMonthItem = wv_month.getAdapter().getItemsCount() - 1;
@@ -480,7 +480,7 @@ public class WheelTime {
 
                 } else {
                     //重新设置月份
-                    Log.d("wv_day_ss", "=-=-22=-=> 设置月 "+year_num + " , 月："+wv_month.getCurrentItem() + 1 );
+//                    Log.d("wv_day_ss", "=-=-22=-=> 设置月 "+year_num + " , 月："+wv_month.getCurrentItem() + 1 );
                     wv_month.setAdapter(new NumericWheelAdapter(1, 12,year_num,wv_month.getCurrentItem() + 1));
                     //重新设置日
                     setReDay(year_num, wv_month.getCurrentItem() + 1, 1, 31, list_big, list_little);
@@ -574,20 +574,20 @@ public class WheelTime {
 
     private void setReDay(int year_num, int monthNum, int startD, int endD, List<String> list_big, List<String> list_little) {
         int currentItem = wv_day.getCurrentItem();
-        Log.d("wv_day_ss", "=-=-=-=>setReDay , startD: " + startD + " , endD: " + endD + " , year_num: " + year_num + " , monthNum:" + monthNum + " , list_big:" + list_big + " , list_little:" + list_little);
+//        Log.d("wv_day_ss", "=-=-=-=>setReDay , startD: " + startD + " , endD: " + endD + " , year_num: " + year_num + " , monthNum:" + monthNum + " , list_big:" + list_big + " , list_little:" + list_little);
 //        int maxItem;
         if (list_big.contains(String.valueOf(monthNum))) {
             if (endD > 31) {
                 endD = 31;
             }
-            Log.d("wv_day_ss", "=-=-23=-=> 设置天 "+year_num + " , 月："+monthNum );
+//            Log.d("wv_day_ss", "=-=-23=-=> 设置天 "+year_num + " , 月："+monthNum );
             wv_day.setAdapter(new NumericWheelAdapter(startD, endD, year_num, monthNum));
 //            maxItem = endD;
         } else if (list_little.contains(String.valueOf(monthNum))) {
             if (endD > 30) {
                 endD = 30;
             }
-            Log.d("wv_day_ss", "=-=-24=-=> 设置天 "+year_num + " , 月："+monthNum );
+//            Log.d("wv_day_ss", "=-=-24=-=> 设置天 "+year_num + " , 月："+monthNum );
             wv_day.setAdapter(new NumericWheelAdapter(startD, endD, year_num, monthNum));
 //            maxItem = endD;
         } else {
@@ -596,14 +596,14 @@ public class WheelTime {
                 if (endD > 29) {
                     endD = 29;
                 }
-                Log.d("wv_day_ss", "=-=-25=-=> 设置天 "+year_num + " , 月："+monthNum );
+//                Log.d("wv_day_ss", "=-=-25=-=> 设置天 "+year_num + " , 月："+monthNum );
                 wv_day.setAdapter(new NumericWheelAdapter(startD, endD, year_num, monthNum));
 //                maxItem = endD;
             } else {
                 if (endD > 28) {
                     endD = 28;
                 }
-                Log.d("wv_day_ss", "=-=-26=-=> 设置天 "+year_num + " , 月："+monthNum );
+//                Log.d("wv_day_ss", "=-=-26=-=> 设置天 "+year_num + " , 月："+monthNum );
                 wv_day.setAdapter(new NumericWheelAdapter(startD, endD, year_num, monthNum));
 //                maxItem = endD;
             }

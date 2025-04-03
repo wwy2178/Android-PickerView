@@ -36,7 +36,7 @@ public class ArrayWheelAdapter<T> implements WheelAdapter {
 	
 	@Override
 	public Object getItem(int index) {
-		Log.d("选择器绘制View列表", "getItem内容下标: "+index + " 总数量:"+items.size());
+//		Log.d("选择器绘制View列表", "getItem内容下标: "+index + " 总数量:"+items.size());
 		if (index >= 0 && index < items.size()) {
 			return items.get(index);
 		}
@@ -45,13 +45,13 @@ public class ArrayWheelAdapter<T> implements WheelAdapter {
 
 	@Override
 	public int getYearValue(int index) {
-		Log.d("选择器绘制View列表", "获取年数据: "+yearValue);
+//		Log.d("选择器绘制View列表", "获取年数据: "+yearValue);
 		return yearValue;//calendar.get(Calendar.YEAR);
 	}
 
 	@Override
 	public int getMonthValue(int index) {
-		Log.d("选择器绘制View列表", "获取月数据: "+monthValue);
+//		Log.d("选择器绘制View列表", "获取月数据: "+monthValue);
 		return monthValue;//calendar.get(Calendar.MONTH) + 1;
 	}
 
