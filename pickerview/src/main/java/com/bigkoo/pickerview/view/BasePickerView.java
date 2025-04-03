@@ -22,7 +22,7 @@ import com.bigkoo.pickerview.listener.OnDismissListener;
 import com.bigkoo.pickerview.utils.PickerViewAnimateUtil;
 
 /**
- * Created by Sai on 15/11/22.
+ * author: Created by xx on 2025-04-2
  * 精仿iOSPickerViewController控件
  */
 public class BasePickerView {

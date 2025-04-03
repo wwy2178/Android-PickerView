@@ -1,9 +1,10 @@
 package com.bigkoo.pickerview.builder;
 
 import android.content.Context;
-import android.support.annotation.ColorInt;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.ColorInt;
 
 import com.bigkoo.pickerview.configure.PickerOptions;
 import com.bigkoo.pickerview.listener.CustomListener;
@@ -15,7 +16,7 @@ import com.contrarywind.view.WheelView;
 import java.util.Calendar;
 
 /**
- * Created by xiaosongzeem on 2018/3/20.
+ * author: Created by xx on 2025-04-2
  */
 
 public class TimePickerBuilder {
@@ -258,6 +259,11 @@ public class TimePickerBuilder {
 
     public TimePickerBuilder setLunarCalendar(boolean lunarCalendar) {
         mPickerOptions.isLunarCalendar = lunarCalendar;
+        return this;
+    }
+
+    public TimePickerBuilder setShowWeekOfDay(Boolean showWeekOfDay) {
+        mPickerOptions.isShowWeekLabel = showWeekOfDay;
         return this;
     }
 

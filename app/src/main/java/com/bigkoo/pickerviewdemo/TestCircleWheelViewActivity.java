@@ -1,9 +1,10 @@
 package com.bigkoo.pickerviewdemo;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bigkoo.pickerview.adapter.ArrayWheelAdapter;
 import com.contrarywind.listener.OnItemSelectedListener;
@@ -14,8 +15,7 @@ import java.util.List;
 
 /**
  * desc:
- * author: Created by lixiaotong on 2019-07-30
- * e-mail: 516030811@qq.com
+ * author: Created by xx on 2025-04-2
  */
 public class TestCircleWheelViewActivity extends AppCompatActivity {
 

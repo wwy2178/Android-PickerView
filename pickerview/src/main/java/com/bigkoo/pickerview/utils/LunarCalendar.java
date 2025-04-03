@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
- * author: Jerry on 2016/7/11 11:29.
+ * author: Created by xx on 2025-04-2
  * description:工具类，实现公农历互转
  */
 public class LunarCalendar {
@@ -144,7 +144,7 @@ public class LunarCalendar {
                     "Illegal lunar date, must be like that:\n\t" +
                             "year : 1900~2099\n\t" +
                             "month : 1~12\n\t" +
-                            "day : 1~30");
+                            "day : 1~30 \t year:" + year + " - month:"+month + " - monthDay:"+monthDay + " - isLeapMonth:"+isLeapMonth);
         }
 
         dayOffset = (LUNAR_INFO[year - MIN_YEAR] & 0x001F) - 1;

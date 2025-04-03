@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -19,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.CustomListener;
@@ -30,6 +31,7 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.bigkoo.pickerviewdemo.bean.CardBean;
 import com.bigkoo.pickerviewdemo.bean.ProvinceBean;
+import com.contrarywind.view.WheelView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -134,13 +136,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         })
                 .setDate(selectedDate)
                 .setRangDate(startDate, endDate)
-                .isCyclic(true)
-                .setLayoutRes(R.layout.pickerview_custom_lunar, new CustomListener() {
+                .setItemVisibleCount(5)
+                .isCyclic(true) //pickerview_custom_lunar
+                .setLayoutRes(R.layout.custom_pickerview_lunar, new CustomListener() {
 
                     @Override
                     public void customLayout(final View v) {
                         final TextView tvSubmit = (TextView) v.findViewById(R.id.tv_finish);
-                        ImageView ivCancel = (ImageView) v.findViewById(R.id.iv_cancel);
+                        TextView ivCancel = (TextView) v.findViewById(R.id.tv_cancel);
+                        TextView tvCalendar = v.findViewById(R.id.tvCalendar);
+                        TextView tvLunar = v.findViewById(R.id.tvLunar);
+                        tvCalendar.setSelected(true);
+
                         tvSubmit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -155,16 +162,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }
                         });
                         //公农历切换
-                        CheckBox cb_lunar = (CheckBox) v.findViewById(R.id.cb_lunar);
-                        cb_lunar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                            @Override
-                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                pvCustomLunar.setLunarCalendar(!pvCustomLunar.isLunarCalendar());
-                                //自适应宽
-                                setTimePickerChildWeight(v, isChecked ? 0.8f : 1f, isChecked ? 1f : 1.1f);
-                            }
+//                        CheckBox cb_lunar = (CheckBox) v.findViewById(R.id.cb_lunar);
+//                        cb_lunar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//                            @Override
+//                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                                pvCustomLunar.setLunarCalendar(!pvCustomLunar.isLunarCalendar());
+//                                //自适应宽
+//                                setTimePickerChildWeight(v, isChecked ? 0.8f : 1f, isChecked ? 1f : 1.1f);
+//                            }
+//                        });
+                        tvCalendar.setOnClickListener(view -> {
+                            pvCustomLunar.setLunarCalendar(false);
+                            //setTimePickerChildWeight(v,1f,1.1f);
+                            tvCalendar.setSelected(!tvCalendar.isSelected());
+                            tvLunar.setSelected(false);
                         });
-
+                        tvLunar.setOnClickListener(view->{
+                            pvCustomLunar.setLunarCalendar(true);
+                            //setTimePickerChildWeight(v,1f,1.1f);
+                            tvLunar.setSelected(!tvLunar.isSelected());
+                            tvCalendar.setSelected(false);
+                        });
                     }
 
                     /**
@@ -190,6 +208,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setType(new boolean[]{true, true, true, false, false, false})
                 .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
                 .setDividerColor(Color.RED)
+                .setDividerType(WheelView.DividerType.WRAP)
+                .setDividerColor(Color.WHITE)
+                .setBgColor(0x00000000)
+                .setLineSpacingMultiplier(2.2f)
+                .setShowWeekOfDay(true)
                 .build();
     }
 

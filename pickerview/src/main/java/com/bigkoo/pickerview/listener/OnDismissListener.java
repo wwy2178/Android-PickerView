@@ -1,7 +1,7 @@
 package com.bigkoo.pickerview.listener;
 
 /**
- * Created by Sai on 15/8/9.
+ * author: Created by xx on 2025-04-2
  */
 public interface OnDismissListener {
     public void onDismiss(Object o);

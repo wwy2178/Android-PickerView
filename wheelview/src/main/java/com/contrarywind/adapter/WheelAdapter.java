@@ -14,6 +14,10 @@ public interface WheelAdapter<T> {
 	 * @return the wheel item text or null
 	 */
 	T getItem(int index);
+
+	int getYearValue(int index);
+
+	int getMonthValue(int index);
 	
 	/**
 	 * Gets maximum item length. It is used to determine the wheel width.

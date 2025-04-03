@@ -19,8 +19,7 @@ import java.util.Date;
 
 /**
  * 时间选择器
- * Created by Sai on 15/11/22.
- * Updated by XiaoSong on 2017-2-22.
+ * author: Created by xx on 2025-04-2
  */
 public class TimePickerView extends BasePickerView implements View.OnClickListener {
 
@@ -99,6 +98,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         }
 
         wheelTime.setLunarMode(mPickerOptions.isLunarCalendar);
+        wheelTime.setShowWeekOfDay(mPickerOptions.isShowWeekLabel);
 
         if (mPickerOptions.startYear != 0 && mPickerOptions.endYear != 0
                 && mPickerOptions.startYear <= mPickerOptions.endYear) {

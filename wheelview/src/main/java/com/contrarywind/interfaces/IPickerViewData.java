@@ -1,7 +1,7 @@
 package com.contrarywind.interfaces;
 
 /**
- * Created by Sai on 2016/7/13.
+ * author: Created by xx on 2025-04-2
  */
 public interface IPickerViewData {
     String getPickerViewText();

@@ -5,7 +5,7 @@ import android.view.Gravity;
 import com.bigkoo.pickerview.R;
 
 /**
- * Created by Sai on 15/8/9.
+ * author: Created by xx on 2025-04-2
  */
 public class PickerViewAnimateUtil {
     private static final int INVALID = -1;

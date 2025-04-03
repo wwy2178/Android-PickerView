@@ -23,7 +23,12 @@ import com.contrarywind.listener.OnItemSelectedListener;
 import com.contrarywind.timer.InertiaTimerTask;
 import com.contrarywind.timer.MessageHandler;
 import com.contrarywind.timer.SmoothScrollTimerTask;
+import com.contrarywind.util.TimeUtil;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -45,6 +50,8 @@ public class WheelView extends View {
     private static final String[] TIME_NUM = {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09"};
 
     private DividerType dividerType;//分隔线类型
+    private Calendar calendar;
+    private SimpleDateFormat format;
 
     private Context context;
     private Handler handler;
@@ -70,6 +77,7 @@ public class WheelView extends View {
     private int maxTextHeight;
     private int textXOffset;
     private float itemHeight;//每行高度
+    private boolean isShowWeekOfDay = false;
 
 
     private Typeface typeface = Typeface.MONOSPACE;//字体样式，默认是等宽字体
@@ -130,7 +138,8 @@ public class WheelView extends View {
 
     public WheelView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
+        calendar = Calendar.getInstance();
+        format = new SimpleDateFormat("EEEE", Locale.CHINA);
         textSize = getResources().getDimensionPixelSize(R.dimen.pickerview_textsize);//默认大小
 
         DisplayMetrics dm = getResources().getDisplayMetrics();
@@ -244,6 +253,7 @@ public class WheelView extends View {
         Rect rect = new Rect();
         for (int i = 0; i < adapter.getItemsCount(); i++) {
             String s1 = getContentText(adapter.getItem(i));
+            Log.d("wv_day_ss", "计算最大length的Text的宽高度: s1:" + s1 + " , label:" + label + " , year:" + adapter.getYearValue(i) + " , month:" + adapter.getMonthValue(i));
             paintCenterText.getTextBounds(s1, 0, s1.length(), rect);
 
             int textWidth = rect.width();
@@ -445,9 +455,11 @@ public class WheelView extends View {
             int drawRightContentStart = measuredWidth - getTextWidth(paintCenterText, label);
             canvas.drawText(label, drawRightContentStart - CENTER_CONTENT_OFFSET, centerY, paintCenterText);
         }
+        Log.d("WheelViewCanvas", "onDraw  绘制啦 label:" + label);
 
         // 设置数组中每个元素的值
         int counter = 0;
+
         while (counter < itemsVisible) {
             Object showText;
             int index = preCurrentIndex - (itemsVisible / 2 - counter);//索引值，即当前在控件中间的item看作数据源的中间，计算出相对源数据源的index值
@@ -463,7 +475,7 @@ public class WheelView extends View {
             } else {
                 showText = adapter.getItem(index);
             }
-
+            Log.d("WheelViewCanvas", "onDraw  循环绘制啦 label:" + label + " <----> " + showText + " ----- 当前年： " + adapter.getYearValue(index) + " ------ 当前月： " + adapter.getMonthValue(index));
             canvas.save();
             // 弧长 L = itemHeight * counter - itemHeightOffset
             // 求弧度 α = L / r  (弧长/半径) [0,π]
@@ -481,10 +493,29 @@ public class WheelView extends View {
 
                 //如果是label每项都显示的模式，并且item内容不为空、label 也不为空
                 if (!isCenterLabel && !TextUtils.isEmpty(label) && !TextUtils.isEmpty(getContentText(showText))) {
-                    contentText = getContentText(showText) + label;
+                    if (isShowWeekOfDay && calendar != null) {
+                        try {
+                            int day = Integer.parseInt(getContentText(showText));
+//                            int month = adapter.getMonthValue(index)-1;
+//                            if (label.equals("日")) {
+//                                Log.d("WheelViewCanvas", "onDraw 测试 循环绘制啦 label:" + label + " , day：" + day + " , month:" + month);
+//                            }
+                            calendar.set(adapter.getYearValue(index), adapter.getMonthValue(index)-1, day);
+                            boolean isSameDay = TimeUtil.isSameDay(calendar.getTimeInMillis(), System.currentTimeMillis());
+                            String week = isSameDay ? "今天" : format.format(calendar.getTime());
+                            Log.d("WheelViewCanvas", "onDraw  循环绘制啦 label:" + label + " , week：" + week + " <--" + day + "--> " + showText + " ----- 当前年： " + adapter.getYearValue(index) + " ------ 当前月： " + adapter.getMonthValue(index));
+                            contentText = getContentText(showText) + label + " " + week;
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            contentText = getContentText(showText) + label;
+                        }
+                    } else {
+                        contentText = getContentText(showText) + label;
+                    }
                 } else {
                     contentText = getContentText(showText);
                 }
+                Log.d("WheelViewCanvas", " 拿到需要显示的文案: "+ contentText + " ----- 当前年： " + adapter.getYearValue(index) + " ------ 当前月： " + adapter.getMonthValue(index));
                 // 根据当前角度计算出偏差系数，用以在绘制时控制文字的 水平移动 透明度 倾斜程度.
                 float offsetCoefficient = (float) Math.pow(Math.abs(angle) / 90f, 2.2);
 
@@ -747,6 +778,10 @@ public class WheelView extends View {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public void setShowWeekOfDay(boolean isShowWeekOfDay) {
+        this.isShowWeekOfDay = isShowWeekOfDay;
     }
 
     public void isCenterLabel(boolean isCenterLabel) {

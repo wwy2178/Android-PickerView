@@ -5,9 +5,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
@@ -23,8 +24,7 @@ import java.util.List;
 /**
  * 解析省市区数据示例
  *
- * @author 小嵩
- * @date 2017-3-16
+ * author: Created by xx on 2025-04-2
  */
 public class JsonDataActivity extends AppCompatActivity implements View.OnClickListener {
 
