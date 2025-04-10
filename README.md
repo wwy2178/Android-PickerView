@@ -14,9 +14,7 @@
 
 #### 对于使用上有任何疑问或优化建议等，欢迎加入QQ群讨论交流技术问题。
 
-交流群1： 387051294（推荐）
 
-交流群2： 219962328（已满）
 
 ## 介绍
 
@@ -61,6 +59,10 @@
   startDate.set(2013,0,1);
   endDate.set(2020,11,1);
 
+#### V1.0.5 版本更新说明（2025-4-3）
+- 新增: 增加公历选择器时控制是否显示星期几。 （setShowWeekOfDay(true)）
+- 新增：引用该依赖时，同步依赖滑动库：com.github.wwy2178:Android-WheelView:v1.0.3
+
  #### V4.1.9 版本更新说明（2019-10-20）
    - 修复: 农历 day 偶现越界的问题。
    - 优化: 显示布局中英文默认大写问题。
@@ -89,9 +91,18 @@
 
 #### Android-PickerView 库使用示例：
 
-#### 1.添加Jcenter仓库 Gradle依赖：
+#### 1.添加Maven仓库
+```
+repositories {
+			mavenCentral()
+			maven { url 'https://jitpack.io' }
+		}
+```
+#### Gradle依赖：
 ```java
-compile 'com.contrarywind:Android-PickerView:4.1.9'
+implementation 'com.github.wwy2178:Android-PickerView:v1.0.5'
+// 滑动库
+implementation 'com.github.wwy2178:Android-WheelView:v1.0.3'
 ```
 或者
 
@@ -100,7 +111,7 @@ compile 'com.contrarywind:Android-PickerView:4.1.9'
 <dependency>
 <groupId>com.contrarywind</groupId>
 <artifactId>Android-PickerView</artifactId>
-<version>4.1.9</version>
+<version>1.0.5</version>
 <type>pom</type>
 </dependency>
 ```
