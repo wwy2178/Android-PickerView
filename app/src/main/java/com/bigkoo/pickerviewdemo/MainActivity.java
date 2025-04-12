@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initLunarPicker() {
         Calendar selectedDate = Calendar.getInstance();//系统当前时间
         Calendar startDate = Calendar.getInstance();
-        startDate.set(2014, 1, 23);
+        startDate.set(2014, 1, 1);
         Calendar endDate = Calendar.getInstance();
         endDate.set(2069, 2, 28);
         //时间选择器 ，自定义布局
@@ -278,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          */
         Calendar selectedDate = Calendar.getInstance();//系统当前时间
         Calendar startDate = Calendar.getInstance();
-        startDate.set(2014, 1, 23);
+        startDate.set(2014, 1, 1);
         Calendar endDate = Calendar.getInstance();
         endDate.set(2027, 2, 28);
         //时间选择器 ，自定义布局

@@ -786,7 +786,7 @@ public class WheelTime {
 
 
     public void setRangDate(Calendar startDate, Calendar endDate) {
-
+        // 变成23 的位置方法
         if (startDate == null && endDate != null) {
             int year = endDate.get(Calendar.YEAR);
             int month = endDate.get(Calendar.MONTH) + 1;
