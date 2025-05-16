@@ -313,7 +313,7 @@ public class ChinaDate {
     // 设置农历中 年 位置数据
     public static ArrayList<String> getYears(int startYear, int endYear) {
         ArrayList<String> years = new ArrayList<>();
-        for (int i = startYear; i < endYear; i++) {
+        for (int i = startYear; i <= endYear; i++) {
 //            years.add(String.format("%s(%d)", getLunarYearText(i), i));
             years.add(String.format("%d年", i));
         }
