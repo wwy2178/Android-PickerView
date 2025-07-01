@@ -26,7 +26,7 @@ public class TestCircleWheelViewActivity extends AppCompatActivity {
 
         WheelView wheelView = findViewById(R.id.wheelview);
 //        wheelView.setTextSize(20);
-        wheelView.setLineSpacingMultiplier(1.1f);
+        wheelView.setLineSpacingMultiplier(1.3f);
          wheelView.setDividerWidth(6);
          wheelView.setItemsVisibleCount(3);
          wheelView.setDividerLength(200);

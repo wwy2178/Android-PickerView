@@ -12,5 +12,7 @@
         android:layout_centerInParent="true"
         app:wheelview_dividerWidth="2dp"
         app:wheelview_textSize="60sp"
-        app:wheelview_textOutSize="30sp"/>
+        app:wheelview_gravity="center"
+        app:wheelview_textOutSize="30sp"
+        app:wheelview_centerOffsetY="10dp"/>
 </RelativeLayout>
