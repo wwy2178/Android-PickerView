@@ -33,7 +33,7 @@ afterEvaluate {
                 // 配置 Maven 坐标（对应 com.github.wwy2178:AndroidPickerView:v1.0.0）
                 groupId = 'com.github.wwy2178'  // 替换为你的 GitHub 用户名
                 artifactId = 'pickerview'      // 模块名称（如 AndroidPickerView）
-                version = '1.0.7'                   // 版本号
+                version = '1.0.8'                   // 版本号
             }
         }
     }
@@ -46,5 +46,5 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.3.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"
     //
-//    api 'com.github.wwy2178:Android-WheelView:v1.0.3'
+    api 'com.github.wwy2178:Android-WheelView:1.0.5'
 }
