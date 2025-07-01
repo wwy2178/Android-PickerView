@@ -25,10 +25,13 @@ public class TestCircleWheelViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test_circle_wheelview);
 
         WheelView wheelView = findViewById(R.id.wheelview);
-        wheelView.setTextSize(20);
-        wheelView.setLineSpacingMultiplier(2f);
-        // wheelView.setDividerWidth(6);
-        wheelView.setDividerType(WheelView.DividerType.CIRCLE);
+//        wheelView.setTextSize(20);
+        wheelView.setLineSpacingMultiplier(1.1f);
+         wheelView.setDividerWidth(6);
+         wheelView.setItemsVisibleCount(3);
+         wheelView.setDividerLength(200);
+//         wheelView.setTextOutSize(10);
+        wheelView.setDividerType(WheelView.DividerType.FILL);
 
         final List<String> mOptionsItems = new ArrayList<>();
         mOptionsItems.add("10");

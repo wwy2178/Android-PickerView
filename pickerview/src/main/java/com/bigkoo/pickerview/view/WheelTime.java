@@ -46,7 +46,7 @@ public class WheelTime {
     private int endDay = DEFAULT_END_DAY; //表示31天的
     private int currentYear;
 
-    private int textSize;
+    private int textSize,textOutSize;
 
     private boolean isLunarCalendar = false;
     private boolean isShowWeekOfDay = false;
@@ -58,6 +58,15 @@ public class WheelTime {
         this.type = type;
         this.gravity = gravity;
         this.textSize = textSize;
+    }
+
+    public WheelTime(View view, boolean[] type, int gravity, int textSize,int textOutSize) {
+        super();
+        this.view = view;
+        this.type = type;
+        this.gravity = gravity;
+        this.textSize = textSize;
+        this.textOutSize = textOutSize;
     }
 
     public void setLunarMode(boolean isLunarCalendar) {
@@ -623,6 +632,13 @@ public class WheelTime {
         wv_hours.setTextSize(textSize);
         wv_minutes.setTextSize(textSize);
         wv_seconds.setTextSize(textSize);
+
+        wv_day.setTextOutSize(textOutSize);
+        wv_month.setTextOutSize(textOutSize);
+        wv_year.setTextOutSize(textOutSize);
+        wv_hours.setTextOutSize(textOutSize);
+        wv_minutes.setTextOutSize(textOutSize);
+        wv_seconds.setTextOutSize(textOutSize);
     }
 
 

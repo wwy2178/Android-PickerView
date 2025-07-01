@@ -2,6 +2,7 @@ package com.bigkoo.pickerviewdemo;
 
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.CustomListener;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
+import com.contrarywind.view.WheelView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -72,6 +75,12 @@ public class TestFragment extends Fragment implements View.OnClickListener {
                     public void customLayout(View v) {
                         final TextView tvSubmit = (TextView) v.findViewById(R.id.tv_finish);
                         ImageView ivCancel = (ImageView) v.findViewById(R.id.iv_cancel);
+                        WheelView year = (WheelView) v.findViewById(R.id.year);
+                        year.setDividerType(WheelView.DividerType.WRAP);
+                        WheelView month = (WheelView) v.findViewById(R.id.month);
+                        month.setDividerType(WheelView.DividerType.WRAP);
+                        WheelView day = (WheelView) v.findViewById(R.id.day);
+                        day.setDividerType(WheelView.DividerType.WRAP);
                         tvSubmit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -87,17 +96,21 @@ public class TestFragment extends Fragment implements View.OnClickListener {
                         });
                     }
                 })
-                .setType(new boolean[]{true, true, true, false, false, false})
+                .setType(new boolean[]{false, false, false, true, true, true})
                 .setLabel("", "", "", "", "", "") //设置空字符串以隐藏单位提示   hide label
                 .setDividerColor(Color.DKGRAY)
-                .setContentTextSize(20)
+                .setDividerType(WheelView.DividerType.WRAP)
+                .setContentTextSize(60)
+                .setContentTextOutSize(30)
                 .setDate(selectedDate)
+                .setItemVisibleCount(3)
+                .setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "fonts/fulbo_retro_2.otf"))
                 .setRangDate(startDate, selectedDate)
+                .setLineSpacingMultiplier(1.5f)
                 .setDecorView(mFrameLayout)//非dialog模式下,设置ViewGroup, pickerView将会添加到这个ViewGroup中
                 .setOutSideColor(0x00000000)
                 .setOutSideCancelable(false)
                 .build();
-
         pvTime.setKeyBackCancelable(false);//系统返回键监听屏蔽掉
     }
 

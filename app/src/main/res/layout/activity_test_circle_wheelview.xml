@@ -7,8 +7,10 @@
     <com.contrarywind.view.WheelView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/wheelview"
-        android:layout_width="match_parent"
+        android:layout_width="60dp"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        app:wheelview_dividerWidth="2dp" />
+        app:wheelview_dividerWidth="2dp"
+        app:wheelview_textSize="60sp"
+        app:wheelview_textOutSize="30sp"/>
 </RelativeLayout>

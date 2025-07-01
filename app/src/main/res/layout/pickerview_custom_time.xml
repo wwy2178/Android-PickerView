@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -45,7 +46,7 @@
     <!--此部分需要完整复制过去，删减或者更改ID会导致初始化找不到内容而报空-->
     <LinearLayout
         android:id="@+id/timepicker"
-        android:minHeight="150dp"
+        android:minHeight="250dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
@@ -56,38 +57,57 @@
             android:id="@+id/year"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            app:wheelview_textOutSize="30sp"
+            app:wheelview_textSize="60sp"
+            app:wheelview_textColorOut="#FF0000"
+            app:wheelview_dividerColor="#767676"
+            app:wheelview_lineSpacingMultiplier="2"/>
+
+
 
         <com.contrarywind.view.WheelView
 
             android:id="@+id/month"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.1" />
+            android:layout_weight="1.1"
+            app:wheelview_textOutSize="30sp"
+            app:wheelview_textSize="60sp"
+            app:wheelview_lineSpacingMultiplier="2"/>
 
         <com.contrarywind.view.WheelView
             android:id="@+id/day"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.1" />
+            android:layout_weight="1.1"
+            app:wheelview_textOutSize="30sp"
+            app:wheelview_textSize="60sp"
+            app:wheelview_lineSpacingMultiplier="2"/>
 
         <com.contrarywind.view.WheelView
             android:id="@+id/hour"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.1" />
+            android:layout_weight="1.1"
+            app:wheelview_textOutSize="14sp"
+            app:wheelview_textSize="20sp"/>
 
         <com.contrarywind.view.WheelView
             android:id="@+id/min"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.1" />
+            android:layout_weight="1.1"
+            app:wheelview_textOutSize="14sp"
+            app:wheelview_textSize="20sp"/>
 
         <com.contrarywind.view.WheelView
             android:id="@+id/second"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.1" />
+            android:layout_weight="1.1"
+            app:wheelview_textOutSize="14sp"
+            app:wheelview_textSize="20sp"/>
     </LinearLayout>
 
 

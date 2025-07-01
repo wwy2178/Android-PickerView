@@ -222,6 +222,12 @@ public class WheelOptions<T> {
         wv_option3.setTextSize(textSize);
     }
 
+    public void setTextOutContentSize(int textSize) {
+        wv_option1.setTextOutSize(textSize);
+        wv_option2.setTextOutSize(textSize);
+        wv_option3.setTextOutSize(textSize);
+    }
+
     private void setLineSpacingMultiplier() {
 
     }

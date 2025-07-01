@@ -1,6 +1,7 @@
 package com.bigkoo.pickerview.builder;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -84,6 +85,11 @@ public class TimePickerBuilder {
         return this;
     }
 
+    public TimePickerBuilder setTypeface(Typeface font){
+        mPickerOptions.font = font;
+        return this;
+    }
+
     /**
      * ViewGroup 类型的容器
      *
@@ -122,6 +128,11 @@ public class TimePickerBuilder {
 
     public TimePickerBuilder setContentTextSize(int textSizeContent) {
         mPickerOptions.textSizeContent = textSizeContent;
+        return this;
+    }
+
+    public TimePickerBuilder setContentTextOutSize(int outSideColor){
+        mPickerOptions.textOutSizeContent = outSideColor;
         return this;
     }
 
